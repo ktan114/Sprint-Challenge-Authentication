@@ -17,8 +17,12 @@ const login = (req, res) => {
         const payload = {
           username: user.username
         }; // what will determine our payload.
-        const token = jwt.sign(payload, mysecret); // creates our JWT with a secret and a payload and a hash.
-        res.send({ token }); // sends the token back to the client
+        if (password) {
+          const token = jwt.sign(payload, mysecret); // creates our JWT with a secret and a payload and a hash.
+          res.send({ token }); // sends the token back to the client
+        } else {
+          res.send('Invalid Credentials')
+        }
       })
   })}
 
