@@ -12,5 +12,8 @@ JWT - stands for Json Web Token and this is sent upon request to retrieve inform
 
 2.  What does bcrypt do in order to prevent attacks?
 
+bcrypt is a function that applies hashing changes to a password from its original string into random characters done through adding salts (random combination of characters) and then hashing. This will slow down the process of creating a rainbow table when passwords are sophisticated enough to avoid being recognized as a pattern its hash form.
 
 3.  What are the three parts of the JSON Web Token?
+
+The three parts of a JSON Web Token is the header, the payload, and the signature (the combination of the header and payload with a user specific random string).
