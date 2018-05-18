@@ -16,4 +16,4 @@ bcrypt is a function that applies hashing changes to a password from its origina
 
 3.  What are the three parts of the JSON Web Token?
 
-The three parts of a JSON Web Token is the header, the payload, and the signature (the combination of the header and payload with a user specific random string).
+The three parts of a JSON Web Token is the header, the payload, and the signature (the combination of the header and payload with a user specific random string). 
