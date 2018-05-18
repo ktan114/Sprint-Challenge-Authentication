@@ -27,26 +27,20 @@ UserSchema.pre('save', function(next) {
   // Once the password is encrypted, call next() so that your userController and create a user
   bcrypt.hash(this.password, SALT_ROUNDS, (err, hash) => {
     if (err) {
-      return next(err)
+      next(err)
     } else {
       this.password = hash;
-      return next()
+      next()
     }
   })
 });
 
-UserSchema.methods.checkPassword = function(plainTextPW, callBack) {
+UserSchema.methods.checkPassword = function(plainTextPW) {
   // https://github.com/kelektiv/node.bcrypt.js#usage
   // Fill this method in with the Proper password comparing, bcrypt.compare()
   // Your controller will be responsible for sending the information here for password comparison
   // Once you have the user, you'll need to pass the encrypted pw and the plaintext pw to the compare function
-  bcrypt.compare(this.password, plainTextPW, function(err, next) {
-    if (err) {
-      return next(err)
-    } else {
-      return next()
-    }
-  }
-)};
+  return bcrypt.compare(plainTextPW, this.password)
+};
 
 module.exports = mongoose.model('User', UserSchema);
