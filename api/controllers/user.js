@@ -6,9 +6,9 @@ const createUser = (req, res) => {
   // create user takes in the username and password and saves a user.
   // our pre save hook should kick in here saving this user to the DB with an encrypted password.
   User
-    .save(req.body)
+    .create(req.body)
     .then(user => {
-      res.status(201).json(req.body)
+      res.status(201).json(user)
     })
     .catch(err => {
       res.status(401).send(err)
